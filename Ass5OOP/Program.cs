@@ -61,6 +61,35 @@ namespace Ass5OOP
         //}
         #endregion
 
+        #region Second Project
+        //public static class Math
+        //{
+        //    public static double Add(double num1, double num2)
+        //    {
+        //        return num1 + num2;
+        //    }
+
+        //    public static double Subtract(double num1, double num2)
+        //    {
+        //        return num1 - num2;
+        //    }
+
+        //    public static double Multiply(double num1, double num2)
+        //    {
+        //        return num1 * num2;
+        //    }
+
+        //    public static double Divide(double num1, double num2)
+        //    {
+        //        if (num2 == 0)
+        //        {
+        //            Console.WriteLine("can't divide by zero");
+        //        }
+        //        return num1 / num2;
+        //    }
+        //}
+        #endregion
+
 
 
         static void Main(string[] args)
@@ -159,6 +188,19 @@ namespace Ass5OOP
             //    Console.WriteLine("Please enter three coordinates");
             //} 
             #endregion
+
+
+            #region Second Project
+                //double a = 10;
+                //double b = 22;
+
+                //Console.WriteLine($"Addition: {a} + {b} = {Math.Add(a, b)}");
+                //Console.WriteLine($"Subtraction: {a} - {b} = {Math.Subtract(a, b)}");
+                //Console.WriteLine($"Multiplication: {a} × {b} = {Math.Multiply(a, b)}");
+                //Console.WriteLine($"Division: {a} ÷ {b} = {Math.Divide(a, b)}");            
+            #endregion
+
+
 
 
         }
