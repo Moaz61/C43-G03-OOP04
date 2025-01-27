@@ -381,6 +381,10 @@ namespace Ass5OOP
                     Console.WriteLine($"Total Before Discount: ${totalPrice}");
                     Console.WriteLine($"Discount Amount: ${discountAmount}");
                     Console.WriteLine($"Final Price: ${finalPrice}");
+
+                    Console.Write("\nWould you like to continue (y/n): ");
+                    if (Console.ReadLine()?.ToLower() != "y")
+                        break;
                 }
             }
             catch (Exception ex)
