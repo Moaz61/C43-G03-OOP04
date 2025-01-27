@@ -94,135 +94,135 @@ namespace Ass5OOP
         #region Third Project
 
         #region Part01
-        public abstract class Discount
-        {
-            public string Name { get; protected set; }
+        //public abstract class Discount
+        //{
+        //    public string Name { get; protected set; }
 
-            protected Discount(string name)
-            {
-                Name = name;
-            }
+        //    protected Discount(string name)
+        //    {
+        //        Name = name;
+        //    }
 
-            public abstract decimal CalculateDiscount(decimal price, int quantity);
-        }
+        //    public abstract decimal CalculateDiscount(decimal price, int quantity);
+        //}
         #endregion
 
         #region Part02
-        public class PercentageDiscount : Discount
-        {
-            private decimal _percentageOff;
+        //public class PercentageDiscount : Discount
+        //{
+        //    private decimal _percentageOff;
 
-            public PercentageDiscount(decimal percentageOff) : base("Percentage Discount")
-            {
-                if (percentageOff < 0 || percentageOff > 100)
-                    Console.WriteLine("Percentage must be between 0 and 100");
+        //    public PercentageDiscount(decimal percentageOff) : base("Percentage Discount")
+        //    {
+        //        if (percentageOff < 0 || percentageOff > 100)
+        //            Console.WriteLine("Percentage must be between 0 and 100");
 
-                _percentageOff = percentageOff;
-            }
+        //        _percentageOff = percentageOff;
+        //    }
 
-            public override decimal CalculateDiscount(decimal price, int quantity)
-            {
-                return price * quantity * (_percentageOff / 100);
-            }
-        }
+        //    public override decimal CalculateDiscount(decimal price, int quantity)
+        //    {
+        //        return price * quantity * (_percentageOff / 100);
+        //    }
+        //}
 
-        public class FlatDiscount : Discount
-        {
-            private decimal _flatAmount;
+        //public class FlatDiscount : Discount
+        //{
+        //    private decimal _flatAmount;
 
-            public FlatDiscount(decimal flatAmount) : base("Flat Discount")
-            {
-                if (flatAmount < 0)
-                    Console.WriteLine("Flat amount cannot be negative");
+        //    public FlatDiscount(decimal flatAmount) : base("Flat Discount")
+        //    {
+        //        if (flatAmount < 0)
+        //            Console.WriteLine("Flat amount cannot be negative");
 
-                _flatAmount = flatAmount;
-            }
+        //        _flatAmount = flatAmount;
+        //    }
 
-            public override decimal CalculateDiscount(decimal price, int quantity)
-            {
-                return _flatAmount * Math.Min(quantity, 1);
-            }
-        }
+        //    public override decimal CalculateDiscount(decimal price, int quantity)
+        //    {
+        //        return _flatAmount * Math.Min(quantity, 1);
+        //    }
+        //}
 
-        public class BuyOneGetOneDiscount : Discount
-        {
-            public BuyOneGetOneDiscount() : base("Buy One Get One Discount")
-            {
-            }
+        //public class BuyOneGetOneDiscount : Discount
+        //{
+        //    public BuyOneGetOneDiscount() : base("Buy One Get One Discount")
+        //    {
+        //    }
 
-            public override decimal CalculateDiscount(decimal price, int quantity)
-            {
-                if (quantity <= 1)
-                    return 0;
+        //    public override decimal CalculateDiscount(decimal price, int quantity)
+        //    {
+        //        if (quantity <= 1)
+        //            return 0;
 
-                return (price / 2) * (quantity / 2);
-            }
-        }
+        //        return (price / 2) * (quantity / 2);
+        //    }
+        //}
 
-        public class NoDiscount : Discount
-        {
-            public NoDiscount() : base("No Discount")
-            {
-            }
+        //public class NoDiscount : Discount
+        //{
+        //    public NoDiscount() : base("No Discount")
+        //    {
+        //    }
 
-            public override decimal CalculateDiscount(decimal price, int quantity)
-            {
-                return 0;
-            }
-        }
+        //    public override decimal CalculateDiscount(decimal price, int quantity)
+        //    {
+        //        return 0;
+        //    }
+        //}
         #endregion
 
         #region Part03
-        public abstract class User
-        {
-            public string Name { get; protected set; }
+        //public abstract class User
+        //{
+        //    public string Name { get; protected set; }
 
-            protected User(string name)
-            {
-                if (string.IsNullOrWhiteSpace(name))
-                    Console.WriteLine("Name cannot be empty");
+        //    protected User(string name)
+        //    {
+        //        if (string.IsNullOrWhiteSpace(name))
+        //            Console.WriteLine("Name cannot be empty");
 
-                Name = name;
-            }
+        //        Name = name;
+        //    }
 
-            public abstract Discount GetDiscount();
-        }
+        //    public abstract Discount GetDiscount();
+        //}
 
-        public class RegularUser : User
-        {
-            public RegularUser(string name) : base(name)
-            {
-            }
+        //public class RegularUser : User
+        //{
+        //    public RegularUser(string name) : base(name)
+        //    {
+        //    }
 
-            public override Discount GetDiscount()
-            {
-                return new PercentageDiscount(5); 
-            }
-        }
+        //    public override Discount GetDiscount()
+        //    {
+        //        return new PercentageDiscount(5); 
+        //    }
+        //}
 
-        public class PremiumUser : User
-        {
-            public PremiumUser(string name) : base(name)
-            {
-            }
+        //public class PremiumUser : User
+        //{
+        //    public PremiumUser(string name) : base(name)
+        //    {
+        //    }
 
-            public override Discount GetDiscount()
-            {
-                return new FlatDiscount(100);
-            }
-        }
+        //    public override Discount GetDiscount()
+        //    {
+        //        return new FlatDiscount(100);
+        //    }
+        //}
 
-        public class GuestUser : User
-        {
-            public GuestUser(string name) : base(name)
-            {
-            }
+        //public class GuestUser : User
+        //{
+        //    public GuestUser(string name) : base(name)
+        //    {
+        //    }
 
-            public override Discount GetDiscount()
-            {
-                return new NoDiscount(); 
-            }
-        }
+        //    public override Discount GetDiscount()
+        //    {
+        //        return new NoDiscount(); 
+        //    }
+        //}
         #endregion
 
         #endregion
@@ -339,81 +339,83 @@ namespace Ass5OOP
             #region Third Project
 
             #region Part04
-            try
-            {
-                while (true)
-                {
-                    Console.Write("Enter your name: ");
-                    string name = Console.ReadLine();
+            //    try
+            //    {
+            //        while (true)
+            //        {
+            //            Console.Write("Enter your name: ");
+            //            string name = Console.ReadLine();
+            //            if (string.IsNullOrWhiteSpace(name))
+            //                Console.WriteLine("Name cannot be empty");
 
-                    Console.WriteLine("\nSelect your user type:");
-                    Console.WriteLine("1. Regular User (5% discount)");
-                    Console.WriteLine("2. Premium User ($100 flat discount)");
-                    Console.WriteLine("3. Guest User (no discount)");
-                    Console.Write("Enter choice (1-3): ");
+            //            Console.WriteLine("\nSelect your user type:");
+            //            Console.WriteLine("1. Regular User (5% discount)");
+            //            Console.WriteLine("2. Premium User ($100 flat discount)");
+            //            Console.WriteLine("3. Guest User (no discount)");
+            //            Console.Write("Enter choice (1-3): ");
 
-                    User user = CreateUser(name);
-                    if (user == null) continue;
+            //            User user = CreateUser(name);
+            //            if (user == null) continue;
 
-                    Console.Write("\nEnter product price: $");
-                    if (!decimal.TryParse(Console.ReadLine(), out decimal price) || price <= 0)
-                    {
-                        Console.WriteLine("Invalid price Please enter a positive number.");
-                        continue;
-                    }
+            //            Console.Write("\nEnter product price: $");
+            //            if (!decimal.TryParse(Console.ReadLine(), out decimal price) || price <= 0)
+            //            {
+            //                Console.WriteLine("Invalid price Please enter a positive number.");
+            //                continue;
+            //            }
 
-                    Console.Write("Enter quantity: ");
-                    if (!int.TryParse(Console.ReadLine(), out int quantity) || quantity <= 0)
-                    {
-                        Console.WriteLine("Invalid quantity Please enter a positive number.");
-                        continue;
-                    }
+            //            Console.Write("\nEnter quantity: ");
+            //            if (!int.TryParse(Console.ReadLine(), out int quantity) || quantity <= 0)
+            //            {
+            //                Console.WriteLine("Invalid quantity Please enter a positive number.");
+            //                continue;
+            //            }
 
-                    Discount discount = user.GetDiscount();
-                    decimal totalPrice = price * quantity;
-                    decimal discountAmount = discount.CalculateDiscount(price, quantity);
-                    decimal finalPrice = totalPrice - discountAmount;
+            //            Discount discount = user.GetDiscount();
+            //            decimal totalPrice = price * quantity;
+            //            decimal discountAmount = discount.CalculateDiscount(price, quantity);
+            //            decimal finalPrice = totalPrice - discountAmount;
 
-                    Console.WriteLine($"Customer: {user.Name}");
-                    Console.WriteLine($"Discount Type: {discount.Name}");
-                    Console.WriteLine($"Product Price: ${price}");
-                    Console.WriteLine($"Quantity: {quantity}");
-                    Console.WriteLine($"Total Before Discount: ${totalPrice}");
-                    Console.WriteLine($"Discount Amount: ${discountAmount}");
-                    Console.WriteLine($"Final Price: ${finalPrice}");
+            //            Console.WriteLine($"\nCustomer: {user.Name}");
+            //            Console.WriteLine($"Discount Type: {discount.Name}");
+            //            Console.WriteLine($"Product Price: ${price}");
+            //            Console.WriteLine($"Quantity: {quantity}");
+            //            Console.WriteLine($"Total Before Discount: ${totalPrice}");
+            //            Console.WriteLine($"Discount Amount: ${discountAmount}");
+            //            Console.WriteLine($"Final Price: ${finalPrice}");
 
-                    Console.Write("\nWould you like to continue (y/n): ");
-                    if (Console.ReadLine()?.ToLower() != "y")
-                        break;
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"An error occurred: {ex.Message}");
-            }
+            //            Console.Write("\nWould you like to continue (y/n): ");
+            //            if (Console.ReadLine()?.ToLower() != "y")
+            //                break;
+            //        }
+            //    }
+            //    catch (Exception ex)
+            //    {
+            //        Console.WriteLine($"An error occurred: {ex.Message}");
+            //    }
+            //}
+
+            //static User CreateUser(string name)
+            //{
+            //    if (!int.TryParse(Console.ReadLine(), out int choice))
+            //    {
+            //        Console.WriteLine("Invalid choice Please enter number between 1 and 3");
+            //        return null;
+            //    }
+
+            //    return choice switch
+            //    {
+            //        1 => new RegularUser(name),
+            //        2 => new PremiumUser(name),
+            //        3 => new GuestUser(name),
+            //        _ => null
+            //    };
+            //}
+            #endregion
+
+            #endregion
+
         }
-
-        static User CreateUser(string name)
-        {
-            if (!int.TryParse(Console.ReadLine(), out int choice))
-            {
-                Console.WriteLine("Invalid choice Please enter number between 1 and 3");
-                return null;
-            }
-
-            return choice switch
-            {
-                1 => new RegularUser(name),
-                2 => new PremiumUser(name),
-                3 => new GuestUser(name),
-                _ => null
-            };
-        }
-        #endregion
-
-        #endregion
-
-
 
     }
 }
